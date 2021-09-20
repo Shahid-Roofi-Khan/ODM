@@ -20,7 +20,7 @@ from stages.odm_app import ODMApp
 if __name__ == '__main__':
     args = config.config()
 
-    log.ODM_INFO('Initializing ODM - %s' % system.now())
+    log.ODM_INFO('Initializing (My Custom) ODM - %s' % system.now())
 
     # Print args
     args_dict = args_to_dict(args)

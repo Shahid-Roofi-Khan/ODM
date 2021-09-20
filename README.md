@@ -1,3 +1,45 @@
+# Overview
+
+This is my fork of ODM. in'sha'Allah optimizing it further.
+
+# Usage
+
+On Linux: WSL2 - Ubuntu 20.04 LTS:
+
+```bash
+$ DATA=/path/to/datasets ./start-dev-env.sh
+e.g:
+DATA=~/projects/gujarkhan/datasets ./start-dev-env.sh
+```
+
+Where `/path/to/datasets` is a directory where you can place test datasets (it can also point to an empty directory if you don't have test datasets).
+
+Run configure to set up the required third party libraries:
+```bash
+(odmdev) [user:/code] master+* ± bash configure.sh reinstall
+```
+You can now make changes to the ODM source. 
+
+Note: the above two commands use the code in the current folder and copies it to docker instance. The images used by docker for this case: opendronemap/nodeodm does not contain the actual source code. code is copied from this folder. Which is good. So changes or commits you make either to this repo directly from any where or from within the docker are same and will be into effect when you run the below command last command.
+
+Note: above also means, you don't really need to create a custom docker image !!! because either ways, the code you can change without that. It seems the docker image only contains the library pre-reqs only.
+
+Note: above commands also copy the dataset folder into docker instance as well.
+
+To make changes using VSCode, connect VSCode to docker instance created and start making changes and perform commits on git.
+
+When you are ready to test the changes you can simply invoke:
+
+```bash
+(odmdev) [user:/code] master+* ± ./run.sh --project-path /datasets mydataset
+```
+
+## Goals
+
+The goals are low level C++ optimizations without affecting GPU optimizations already in place.
+
+# Original ReadME:
+
 ![ODM Logo](https://user-images.githubusercontent.com/1951843/79699889-438ce580-8260-11ea-9c79-8667834aeab2.png)
 
 An open source command line toolkit for processing aerial drone imagery. ODM turns simple 2D images into:
