@@ -27,3 +27,7 @@ settings.yaml
 .setupdevenv
 __pycache__
 *.snap
+
+#ignore C++ temp files
+*.o
+*.so

@@ -129,7 +129,19 @@ docker run -ti --entrypoint bash --name myodm -v $(pwd):/code -v "$DATA":/datase
 exit 0
 
 
+# Create image from running container:
+# -----
 # steps to create image from running container
 # docker commit (containerID)
 # docker image ls (get id of image using this command)
 # docker tag (imageid) myodm
+
+#additional dependencies for cpp
+#pip install cppyy
+
+#also install C++ extension in docker container to faciliate CPP 
+
+#CPP Build Steps
+#----
+#g++ -c -fPIC booster.cpp -o booster.o
+#g++ -shared -Wl,-soname,libbooster.so -o libbooster.so booster.o
