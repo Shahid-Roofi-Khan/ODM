@@ -19,10 +19,10 @@ from stages.odm_app import ODMApp
 
 # -------------------------------------------------- Shahid - CPP SharedLib Import - Start
 
-# import cppyy
-# cppyy.include("./cpp/booster.h")
-# cppyy.load_library("booster")
-# from cppyy.gbl import Booster
+import cppyy
+cppyy.include("./cpp/booster.h")
+cppyy.load_library("booster")
+from cppyy.gbl import Booster
 
 
 # -------------------------------------------------- Shahid - CPP SharedLib import - End
@@ -31,8 +31,8 @@ if __name__ == '__main__':
     args = config.config()
 
     # ----------------------------- CPP Invocation
-    #f = Booster()
-    #f.func()
+    f = Booster()
+    f.func()
     # ----------------------------- CPP Invocation End
 
     log.ODM_INFO('Initializing (My Custom) ODM - %s' % system.now())
