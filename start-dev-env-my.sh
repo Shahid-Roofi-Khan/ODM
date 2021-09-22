@@ -128,6 +128,11 @@ xhost + || true
 docker run -ti --entrypoint bash --name myodm -v $(pwd):/code -v "$DATA":/datasets -p $PORT:3000 $GPU_FLAG --privileged -e DISPLAY -e LANG=C.UTF-8 -e LC_ALL=C.UTF-8 -v="/tmp/.X11-unix:/tmp/.X11-unix:rw" -v="$HOME/.odm-dev-home:/home/$USER" $IMAGE -c "/code/start-dev-env.sh --setup $USER $USER_ID $GROUP_ID $QTC"
 exit 0
 
+# HOw to setup the project. run first. 2nd sometimes you need within docker.
+#----------
+#DATA=~/projects/gujarkhan/datasets ./start-dev-env.sh
+#bash configure.sh reinstall
+#./run.sh --project-path ../ datasets
 
 # Create image from running container:
 # -----
@@ -145,3 +150,4 @@ exit 0
 #----
 #g++ -c -fPIC booster.cpp -o booster.o
 #g++ -shared -Wl,-soname,libbooster.so -o libbooster.so booster.o
+
