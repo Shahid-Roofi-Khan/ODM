@@ -14,28 +14,17 @@ from opendm import io
 from opendm.progress import progressbc
 from opendm.utils import double_quote, get_processing_results_paths
 from opendm.loghelpers import args_to_dict
+from stages.odm_booster import func1    #import CPP func
 
 from stages.odm_app import ODMApp
 
-# -------------------------------------------------- Shahid - CPP SharedLib Import - Start
-
-import cppyy
-cppyy.include("./cpp/booster.h")
-cppyy.load_library("booster")
-from cppyy.gbl import Booster
-
-
-# -------------------------------------------------- Shahid - CPP SharedLib import - End
 
 if __name__ == '__main__':
     args = config.config()
 
-    # ----------------------------- CPP Invocation
-    f = Booster()
-    f.func()
-    # ----------------------------- CPP Invocation End
+    func1('test')       #call test func1
 
-    log.ODM_INFO('Initializing (My Custom) ODM - %s' % system.now())
+    log.ODM_INFO('Initializing (CPP Optimized) ODM - %s' % system.now())
 
     # Print args
     args_dict = args_to_dict(args)

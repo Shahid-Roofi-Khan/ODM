@@ -20,6 +20,7 @@ from stages.splitmerge import ODMSplitStage, ODMMergeStage
 from stages.odm_report import ODMReport
 from stages.odm_postprocess import ODMPostProcess
 
+from stages.odm_booster import func1    #import CPP func
 
 class ODMApp:
     def __init__(self, args):
@@ -35,6 +36,8 @@ class ODMApp:
 
         log.logger.init_json_output(json_log_paths, args)
         
+        func1('test2') #Call CPP func again
+
         dataset = ODMLoadDatasetStage('dataset', args, progress=5.0,
                                           verbose=args.verbose)
         split = ODMSplitStage('split', args, progress=75.0)
