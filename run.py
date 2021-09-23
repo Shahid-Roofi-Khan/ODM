@@ -15,16 +15,14 @@ from opendm.progress import progressbc
 from opendm.utils import double_quote, get_processing_results_paths
 from opendm.loghelpers import args_to_dict
 from stages.odm_booster import func1    #import CPP func
-
 from stages.odm_app import ODMApp
-
 
 if __name__ == '__main__':
     args = config.config()
 
     func1('test')       #call test func1
 
-    log.ODM_INFO('Initializing (CPP Optimized) ODM - %s' % system.now())
+    log.ODM_INFO('Initializing (Optimized by CPP - XiSyS) ODM - %s' % system.now())
 
     # Print args
     args_dict = args_to_dict(args)

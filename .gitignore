@@ -31,3 +31,4 @@ __pycache__
 #ignore C++ temp files
 *.o
 *.so
+log.json
