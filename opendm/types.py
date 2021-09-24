@@ -17,6 +17,10 @@ from opendm import context
 from opendm.progress import progressbc
 from opendm.photo import ODM_Photo
 
+import datetime
+from colorama import Fore, Back, Style
+
+
 # Ignore warnings about proj information being lost
 warnings.filterwarnings("ignore")
 
@@ -317,6 +321,10 @@ class ODM_Stage:
         log.logger.log_json_stage_run(self.name, start_time)
 
         log.ODM_INFO('Running %s stage' % self.name)
+
+        start_time_stage = datetime.datetime.now() # Shahid Change: stats collection
+        
+        #print("start time stamp: ", datetime.datetime.now())
         
         self.process(self.args, outputs)
 
@@ -326,6 +334,17 @@ class ODM_Stage:
 
         if self.args.time:
             system.benchmark(start_time, outputs['tree'].benchmarking, self.name)
+
+
+        end_time_stage = datetime.datetime.now() # Shahid Change: stats collection
+
+        duration_time_stage = end_time_stage - start_time_stage 
+
+        # Shahid Commenting to collect stats frome execution
+        print('----------------------------------------------------------------------------------------------------------------------------------------------------')
+        print(Fore.LIGHTYELLOW_EX + Back.BLUE +  '(XiSyS Stats Calculation for ODM) - Stage: ', self.name, ' Elapsed time (Secs:MSecs):', duration_time_stage.seconds, ':', duration_time_stage.microseconds, end =" ")
+        print(Style.RESET_ALL)
+        print('----------------------------------------------------------------------------------------------------------------------------------------------------')
 
         log.ODM_INFO('Finished %s stage' % self.name)
         self.update_progress_end()
