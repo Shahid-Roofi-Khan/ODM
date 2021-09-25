@@ -5,11 +5,26 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Current File",
+            "name": "Python: Current File - Sfm",
             "type": "python",
             "request": "launch",
             "program": "${file}",
-            "args": ["--project-path", "..//", "datasets"],
+            "args": [
+                "extract_metadata",
+                "/datasets/opensfm"
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Python: Current File - Main",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "args": [
+                "--project-path",
+                "..//",
+                "datasets"
+            ],
             "console": "integratedTerminal"
         }
     ]
